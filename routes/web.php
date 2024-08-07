@@ -10,12 +10,15 @@ Route::get('/', function () {
 });
 
 // Define the home route with HomeController
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
-// Define the dashboard route with middleware and name it
+
+
+/* // Define the dashboard route with middleware and name it
 Route::get('/dashboard', function () {
     return view('dashboard'); // Ensure this view exists
 })->middleware(['auth', 'verified'])->name('dashboard');
+ */
 
 // Define routes that require authentication
 Route::middleware('auth')->group(function () {
